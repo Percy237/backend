@@ -1,5 +1,5 @@
-var mongoose = require("mongoose");
-const mongoAtlasUri = `mongodb://localhost:27017/iCivil`;
+const mongoose = require("mongoose");
+const mongoAtlasUri = `mongodb://127.0.0.1:27017/iCivil`;
 function mongooseConnection() {
   try {
     mongoose.connect(mongoAtlasUri, {

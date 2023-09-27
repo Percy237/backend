@@ -1,13 +1,11 @@
 const express = require("express");
 const router = express.Router();
 
-router.route("/").get((req, res) => {
-  res.status(200).json({ message: "Get all hospitals" });
-});
+const hospitalController = require("../controller/hospitalController");
 
-router.route("/").post((req, res) => {
-  res.status(200).json({ message: "Create hospital" });
-});
+router.route("/").get(hospitalController.getAll);
+
+router.route("/").post(hospitalController.create);
 
 router.route("/:id").post((req, res) => {
   res.status(200).json({ message: `Get hospital for ${req.params.id}` });
