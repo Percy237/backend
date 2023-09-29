@@ -1,5 +1,5 @@
-const Hospital = require("../models/Hospital");
-const hospitalServices = require("../services/hospital");
+const secretary = require("../models/Secretary");
+const secretaryServices = require("../services/secretary");
 const userService = require("../services/userService");
 const { hashPassword } = require("../utils/helper");
 
@@ -14,9 +14,8 @@ const create = async (req, res) => {
       let sub_division = req.body.sub_division;
       let matricule_number = req.body.matricule_number;
       let name = req.body.name;
-      let hospital_name = req.body.hospital_name;
-      let type = req.body.type;
-      let role = "hospital";
+      let role = "secretary";
+      let council = req.body.council;
 
       let userData = {
         email,
@@ -30,23 +29,17 @@ const create = async (req, res) => {
         role,
       };
 
-      let hospitalData = {
-        email,
-        password,
-        region,
-        phone_number,
-        division,
-        sub_division,
-        hospital_name,
-        type,
+      let secretaryData = {
+        council,
       };
+
       let createdUser = await userService.createUser(userData);
 
       let user = createdUser._id;
 
       let data = { ...req.body, user };
-      const hospital = await hospitalServices.createHospital(data);
-      res.status(201).json({ data: hospital, message: "Created hospital" });
+      const secretary = await secretaryServices.createSecretary(data);
+      res.status(201).json({ data: secretary, message: "Secretary created" });
     } else {
       res.status(422).json({ data: [], message: "All fields are required" });
     }
@@ -56,10 +49,10 @@ const create = async (req, res) => {
 };
 
 const getAll = async (req, res) => {
-  let hospitals = [];
+  let secretaries = [];
   try {
-    hospitals = await hospitalServices.getAll();
-    res.status(200).json({ data: hospitals, message: "Hospital Listing" });
+    secretaries = await secretaryServices.getAll();
+    res.status(200).json({ data: secretaries, message: "Secretary Listing" });
   } catch (error) {
     res
       .status(200)

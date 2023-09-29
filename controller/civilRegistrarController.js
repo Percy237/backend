@@ -1,7 +1,8 @@
-const Hospital = require("../models/Hospital");
-const hospitalServices = require("../services/hospital");
-const userService = require("../services/userService");
+const civilRegistrar = require("../models/CivilRegistrar");
+const civilRegistrarServices = require("../services/civilRegistrar");
+const { getSecretaryByUserId } = require("../services/secretary");
 const { hashPassword } = require("../utils/helper");
+const userService = require("../services/userService");
 
 const create = async (req, res) => {
   try {
@@ -14,9 +15,11 @@ const create = async (req, res) => {
       let sub_division = req.body.sub_division;
       let matricule_number = req.body.matricule_number;
       let name = req.body.name;
-      let hospital_name = req.body.hospital_name;
-      let type = req.body.type;
-      let role = "hospital";
+      let role = "civil-registrar";
+
+      let secretary = await getSecretaryByUserId(req.body.authUserId);
+
+      let council = secretary.council;
 
       let userData = {
         email,
@@ -30,23 +33,21 @@ const create = async (req, res) => {
         role,
       };
 
-      let hospitalData = {
-        email,
-        password,
-        region,
-        phone_number,
-        division,
-        sub_division,
-        hospital_name,
-        type,
+      let civilRegistrarData = {
+        council,
       };
+
       let createdUser = await userService.createUser(userData);
 
       let user = createdUser._id;
 
       let data = { ...req.body, user };
-      const hospital = await hospitalServices.createHospital(data);
-      res.status(201).json({ data: hospital, message: "Created hospital" });
+      const civilRegistrar = await civilRegistrarServices.createCivilRegistrar(
+        data
+      );
+      res
+        .status(201)
+        .json({ data: civilRegistrar, message: "Civil Registrar created" });
     } else {
       res.status(422).json({ data: [], message: "All fields are required" });
     }
@@ -56,10 +57,12 @@ const create = async (req, res) => {
 };
 
 const getAll = async (req, res) => {
-  let hospitals = [];
+  let civilRegistrars = [];
   try {
-    hospitals = await hospitalServices.getAll();
-    res.status(200).json({ data: hospitals, message: "Hospital Listing" });
+    civilRegistrars = await civilRegistrarServices.getAll();
+    res
+      .status(200)
+      .json({ data: civilRegistrars, message: "Civil Registrar Listing" });
   } catch (error) {
     res
       .status(200)

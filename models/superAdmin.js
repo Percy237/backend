@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const hospitalSchema = new mongoose.Schema({
-  hospital_name: {
+const superAdminSchema = new mongoose.Schema({
+  code: {
     type: String,
     required: true,
   },
-  type: {
+  role: {
     type: String,
     required: true,
   },
@@ -16,4 +16,4 @@ const hospitalSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("Hospital", hospitalSchema);
+module.exports = mongoose.model("SuperAdmin", superAdminSchema);

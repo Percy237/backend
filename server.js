@@ -14,7 +14,12 @@ const dotenv = require("dotenv").config();
 
 const port = process.env.PORT || 5000;
 
-app.use("/api/hospitals", require("./routes/hospitalRoutes"));
+app.use("/api/hospital", require("./routes/hospitalRoutes"));
+app.use("/api/secretary", require("./routes/secretaryRoute"));
+app.use("/api/civil-registrar", require("./routes/civilRegistrarRoute"));
+app.use("/api/auth", require("./routes/authRoute"));
+app.use("/api/user", require("./routes/userRoute"));
+app.use("/api/birth-declaration", require("./routes/birthDeclarationRoute"));
 
 mongooseConnection();
 

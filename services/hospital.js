@@ -6,7 +6,7 @@ const createHospital = async (data) => {
 };
 
 const getAll = async () => {
-  const hospital = await Hospital.find();
+  const hospital = await Hospital.find().populate("user");
   return hospital;
 };
 module.exports = { createHospital, getAll };
