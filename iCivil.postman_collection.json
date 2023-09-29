@@ -1,0 +1,354 @@
+{
+	"info": {
+		"_postman_id": "dee0c6e9-6d10-465e-a00e-677599126314",
+		"name": "iCivil",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30152329"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"percy@gmail.com\",\r\n  \"password\": \"@Tsembompercy123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"debby13@gmail.com\",\r\n  \"password\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/api/auth/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "hospital",
+			"item": [
+				{
+					"name": "create hospital",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n      \"email\": \"percy@gmail.com\",\r\n      \"region\": \"Debby\",\r\n      \"type\": \"Debby\",\r\n      \"phone_number\": \"698989898\",\r\n      \"division\": \"debby\",\r\n      \"subdivision\": \"debby\",\r\n      \"matricule_number\": \"debby1233\",\r\n      \"name\": \"Debby debby\",\r\n      \"hospital_name\": \"Debby Hospital\",\r\n      \"role\":\"hospital head\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/api/hospital",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"hospital"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all hospital",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n      \"email\": \"debby12@gmail.com\",\r\n      \"region\": \"Debby\",\r\n      \"type\": \"Debby\",\r\n      \"phone_number\": \"698989898\",\r\n      \"division\": \"debby\",\r\n      \"subdivision\": \"debby\",\r\n      \"matricule_number\": \"debby1233\",\r\n      \"name\": \"Debby debby\",\r\n      \"hospital_name\": \"Debby Hospital\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/api/hospital",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"hospital"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "secretary",
+			"item": [
+				{
+					"name": "get all secretary",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:5001/api/secretary",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"secretary"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create secretary",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\r\n      \"email\": \"percylarson19@gmail.com\",\r\n      \"region\": \"Center\",\r\n      \"type\": \"District\",\r\n      \"phone_number\": \"67677679\",\r\n      \"division\": \"Mfou\",\r\n      \"matricule_number\": \"1234\",\r\n      \"council\": \"Mbalmayo council\",\r\n      \"name\": \"Penelop Paige\",\r\n      \"role\": \"secretary\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/api/secretary",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"secretary"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "civil registrar",
+			"item": [
+				{
+					"name": "get all civil registrar",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:5001/api/civil-registrar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"civil-registrar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create civil registrar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\r\n      \"email\": \"civilregistrar@gmail.com\",\r\n      \"region\": \"Center\",\r\n      \"phone_number\": \"68977679\",\r\n      \"division\": \"Mfou\",\r\n      \"matricule_number\": \"civilregistrar1234\",\r\n      \"council\": \"Mbalmayo council\",\r\n      \"name\": \"Kate Johnson\",\r\n      \"role\": \"civil-registrar\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/api/civil-registrar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"civil-registrar"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "birth declaration",
+			"item": [
+				{
+					"name": "get all civil registrar",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:5001/api/birth-declaration",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"birth-declaration"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create civil registrar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\r\n      \"email\": \"civilregistrar@gmail.com\",\r\n      \"region\": \"Center\",\r\n      \"phone_number\": \"68977679\",\r\n      \"division\": \"Mfou\",\r\n      \"matricule_number\": \"1234\",\r\n      \"council\": \"Mbalmayo council\",\r\n      \"name\": \"Kate Johnson\",\r\n      \"role\": \"civil-registrar\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/api/birth-declaration",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"birth-declaration"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MTcwYmQxMzZhOTc2NWRiMjFhY2RjOCIsImlhdCI6MTY5NjAwOTE5NCwiZXhwIjoxNjk2MDk1NTk0fQ.5PCGz39GXuObna5vvHW84iq5XUwqZHZynWMKBtRObAQ",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
