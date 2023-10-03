@@ -68,7 +68,6 @@ const birthDeclarationSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-
   marriage_certificate: {
     type: String,
   },

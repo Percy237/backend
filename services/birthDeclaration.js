@@ -2,15 +2,11 @@ const BirthDeclaration = require("../models/birthDeclaration");
 
 const createBirthDeclaration = async (data) => {
   const birthDeclaration = new BirthDeclaration(data);
-  return await birthDeclaration.save();
+  await birthDeclaration.save();
 };
 
-const getAllBirthDeclarations = async () => {
+const getAll = async () => {
   const birthDeclaration = await BirthDeclaration.find();
   return birthDeclaration;
 };
-
-module.exports = {
-  createBirthDeclaration,
-  getAllBirthDeclarations,
-};
+module.exports = { createBirthDeclaration, getAll };

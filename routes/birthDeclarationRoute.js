@@ -17,13 +17,13 @@ router.route("/:id").post((req, res) => {
 router.route("/:id").put((req, res) => {
   res
     .status(200)
-    .json({ message: `Update birth declaration for ${req.params.id}` });
+    .json({ message: `Update birth declaration  for ${req.params.id}` });
 });
 
 router.route("/:id").delete((req, res) => {
   res
     .status(200)
-    .json({ message: `delete birth declaration for ${req.params.id}` });
+    .json({ message: `delete birth declaration  for ${req.params.id}` });
 });
 
 module.exports = router;

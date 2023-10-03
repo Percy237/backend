@@ -1,12 +1,14 @@
-const birthDeclarationServices = require("../services/birthDeclration");
+const birthDeclaration = require("../models/birthDeclaration");
+const birthDeclarationServices = require("../services/birthDeclaration");
 
 const create = async (req, res) => {
   try {
+    let data = { ...req.body };
     const birthDeclaration =
       await birthDeclarationServices.createBirthDeclaration(data);
     res
       .status(201)
-      .json({ data: birthDeclaration, message: "Birth declaration created" });
+      .json({ data: birthDeclaration, message: "Created birth declaration" });
   } catch (error) {
     res.status(500).json({ message: `An error occurred: ${error.message}` });
   }
@@ -15,8 +17,7 @@ const create = async (req, res) => {
 const getAll = async (req, res) => {
   let birthDeclarations = [];
   try {
-    birthDeclarations =
-      await birthDeclarationServices.getAllBirthDeclarations();
+    birthDeclarations = await birthDeclarationServices.getAll();
     res
       .status(200)
       .json({ data: birthDeclarations, message: "Birth Declaration Listing" });
@@ -28,6 +29,6 @@ const getAll = async (req, res) => {
 };
 
 module.exports = {
-  getAll,
   create,
+  getAll,
 };

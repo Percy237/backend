@@ -10,7 +10,7 @@ const create = async (req, res) => {
     } else {
       res.status(422).json({ data: [], message: "All fields are required" });
     }
-  } catch (error) {
+  } catch (error) {    
     res.status(500).json({ message: `An error occurred: ${error.message}` });
   }
 };
